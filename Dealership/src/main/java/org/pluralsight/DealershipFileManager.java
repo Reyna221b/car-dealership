@@ -51,7 +51,6 @@ public class DealershipFileManager
                 Vehicle vehicleEntry = new Vehicle(vin,year,make,model,vehicleType,color,odometer,price);
 
                 dealership.addVehicle(vehicleEntry);
-
             }
 
         }

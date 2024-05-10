@@ -1,6 +1,7 @@
 package org.pluralsight;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface
@@ -8,6 +9,7 @@ public class UserInterface
     static final Scanner userInput = new Scanner(System.in);
     public Dealership dealership;
     public DealershipFileManager fileManager;
+    public List<Vehicle> vehicleList;
 
     public int display(){
         init();
@@ -30,7 +32,44 @@ public class UserInterface
                 System.out.println(Colors.CYAN+ "-".repeat(30));
                 System.out.print(Colors.RESET);
                 System.out.print("Enter your choice: ");
-                return userInput.nextInt();
+                int choice = userInput.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        //processGetByPriceRequest();
+                        break;
+                    case 2:
+                      //  processGetByMakeModelRequest();
+                        break;
+                    case 3:
+                      //  processGetByYearRequest();
+                        break;
+                    case 4:
+                       // processGetByColorRequest();
+                        break;
+                    case 5:
+                        //processGetByMilageRequest();
+                        break;
+                    case 6:
+                       // processGetByVehicleTypeRequest();
+                        break;
+                    case 7:
+                        processGetAllVehiclesRequest();
+                        break;
+                    case 8:
+                        processAddVehicleRequest();
+                        break;
+                    case 9:
+                        //processRemoveVehicleRequest();
+                        break;
+                    case 99:
+                        return 0;
+                        //System.exit(0);
+                        //break;
+                    default:
+                        System.out.println("Invalid Input.");
+                }
+
 
             } catch (Exception ex) {
                 System.out.println(Colors.RED + "invalid selection!"+Colors.RESET);
@@ -38,51 +77,44 @@ public class UserInterface
         }
 
     }
+    public void processAddVehicleRequest()
+    {
+        try{
 
-    public void run(int choice){
-        while(true)
-        {
+            System.out.print("Please enter the vin");
+            int vin = Integer.parseInt(userInput.nextLine().strip());
 
-            choice = display();
+            System.out.print("Enter the year: ");
+            int year = Integer.parseInt(userInput.nextLine().strip());
 
-            switch(choice)
-            {
-                case 1:
+            System.out.print("Enter the make: ");
+            String make = userInput.nextLine().strip();
+            System.out.print("Enter the model: ");
+            String model = userInput.nextLine().strip();
+            System.out.print("Enter the color: ");
+            String color = userInput.nextLine().strip();
 
-                    break;
-                case 2:
 
-                    break;
-                case 3:
+            System.out.print("Enter the odometer: ");
+            int odometer = Integer.parseInt(userInput.nextLine().strip());
 
-                    break;
-                case 4:
+            System.out.print("Enter the price: ");
+            double price = Double.parseDouble(userInput.nextLine().strip());
 
-                    break;
-                case 5:
 
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    break;
-
-                case 99:
-                    return;
-
-                default:
-                    System.out.println(Colors.RED + "****That was an invalid selection.****"+ Colors.RESET);
-                    break;
-            }
 
         }
+        catch (Exception e){
+
+        }
+
     }
 
-    private void displayVehicles(ArrayList<Vehicle>vehicles){
+    private void displayVehicles(List<Vehicle>vehicles){
+        if(vehicles.isEmpty()){
+            System.out.println("Sorry no matches!");
+            return;
+        }
         for(Vehicle v : vehicles){
             System.out.println(v);
         }
@@ -91,5 +123,11 @@ public class UserInterface
     private void init(){
         fileManager = new DealershipFileManager();
         this.dealership = fileManager.getDealership();
+    }
+
+    public void processGetAllVehiclesRequest(){
+        vehicleList = dealership.getAllVehicles();
+        displayVehicles(vehicleList);
+
     }
 }

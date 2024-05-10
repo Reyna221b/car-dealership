@@ -4,7 +4,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        DealershipFileManager deal = new DealershipFileManager();
-        System.out.println(deal.getDealership());
+        UserInterface ui = new UserInterface();
+        ui.display();
     }
 }

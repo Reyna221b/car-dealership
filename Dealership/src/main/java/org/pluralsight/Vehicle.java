@@ -102,4 +102,11 @@ public class Vehicle
     {
         this.year = year;
     }
+
+    public String toString()
+    {
+        return String.format(
+                "%-15d  %-15d %-15s  %-15s  %-15s %-15s % -15d %.2f" ,
+                vin, year , make ,model , vehicleType, color, odometer, price);
+    }
 }
