@@ -2,6 +2,7 @@ package org.pluralsight;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Dealership
 {
@@ -50,31 +51,43 @@ public class Dealership
     }
 
 
-/*
     public List<Vehicle> getVehicleByPrice(double min, double max){
-
+        return inventory.stream()
+                .filter(v-> v.getPrice() >= min && v.getPrice() <= max)
+                .collect(Collectors.toList());
     }
 
-    public getVehicleByMakeModel(String make, String model){
-
+    public List<Vehicle> getVehicleByMakeModel(String make, String model){
+        return inventory.stream()
+                .filter(v -> v.getMake().equalsIgnoreCase(make) && v.getModel().equalsIgnoreCase(model) )
+                .collect(Collectors.toList());
     }
 
     public List<Vehicle> getVehicleByYear(double min, double max){
-
+        return inventory.stream()
+                .filter(v-> v.getYear() >= min && v.getYear() <= max)
+                .collect(Collectors.toList());
     }
 
     public List<Vehicle> getVehicleByColor(String color){
 
+        return inventory.stream()
+                .filter(v -> v.getColor().equalsIgnoreCase(color))
+                .collect(Collectors.toList());
     }
 
     public List<Vehicle> getVehicleByMileage(double min, double max){
-
+        return inventory.stream()
+                .filter(v-> v.getOdometer() >= min && v.getOdometer() <= max)
+                .collect(Collectors.toList());
     }
 
     public List<Vehicle> getVehicleByType(String vehicleType){
-
+        return inventory.stream()
+                .filter(v -> v.getVehicleType().equalsIgnoreCase(vehicleType))
+                .collect(Collectors.toList());
     }
-*/
+
     public List<Vehicle> getAllVehicles(){
         return inventory;
     }
