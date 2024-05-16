@@ -1,4 +1,9 @@
-package org.pluralsight;
+package org.pluralsight.ui;
+
+import org.pluralsight.models.Colors;
+import org.pluralsight.services.Dealership;
+import org.pluralsight.services.DealershipFileManager;
+import org.pluralsight.models.Vehicle;
 
 import java.util.List;
 import java.util.Scanner;
@@ -216,7 +221,6 @@ public class UserInterface
     }
 
     public void processRemoveVehicleRequest(){
-
 
         while(true){
 

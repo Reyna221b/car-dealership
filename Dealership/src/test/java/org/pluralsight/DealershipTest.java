@@ -2,6 +2,8 @@ package org.pluralsight;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.pluralsight.models.Vehicle;
+import org.pluralsight.services.Dealership;
 
 import java.util.List;
 
@@ -38,7 +40,7 @@ class DealershipTest
     @Test
     public void testGetVehicleByYear() {
         List<Vehicle> vehicles = dealership.getVehicleByYear(2005, 2015);
-        assertEquals(2, vehicles.size());
+        assertEquals(3, vehicles.size());
         assertTrue(vehicles.stream().allMatch(v -> v.getYear() >= 2005 && v.getYear() <= 2015));
     }
 
@@ -89,5 +91,7 @@ class DealershipTest
 
         assertTrue(vehicles.stream().anyMatch(v -> v.getVin() == 1));
     }
+
+  
 
 }

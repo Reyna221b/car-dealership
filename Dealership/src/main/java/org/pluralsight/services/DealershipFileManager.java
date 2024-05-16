@@ -1,4 +1,6 @@
-package org.pluralsight;
+package org.pluralsight.services;
+
+import org.pluralsight.models.Vehicle;
 
 import java.io.File;
 import java.io.FileReader;
@@ -8,8 +10,6 @@ import java.util.Scanner;
 
 public class DealershipFileManager
 {
-    
-
 
     public Dealership getDealership()
     {

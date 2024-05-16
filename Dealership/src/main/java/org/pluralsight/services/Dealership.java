@@ -1,4 +1,6 @@
-package org.pluralsight;
+package org.pluralsight.services;
+
+import org.pluralsight.models.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;

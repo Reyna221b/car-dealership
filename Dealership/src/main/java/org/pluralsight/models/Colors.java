@@ -1,4 +1,4 @@
-package org.pluralsight;
+package org.pluralsight.models;
 
 public class Colors
 {
